@@ -6,29 +6,72 @@
         Place search
     </title>
 
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js"></script>
 
-    <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"
           integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ=="
           crossorigin="anonymous">
 
-    <!-- Optional theme -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css"
           integrity="sha384-aUGj/X2zp5rLCbBxumKTCw2Z50WgIr1vs/PFN4praOTvYXWlVyh2UtNUU0KAUhAX" crossorigin="anonymous">
 
-    <!-- Latest compiled and minified JavaScript -->
-    <script src="/static/controller.js"></script>
+    <!--  __________________________________________________________________________ -->
+
+    <link rel="stylesheet" href="static/styles.css">
+
+    <script src="static/app.js"></script>
+    <script src="static/controllers.js"></script>
+    <script src="static/services.js"></script>
 </head>
 <body ng-controller="PlacesCtrl">
+
 <div class="container">
     <div class="form-group">
         <input class="form-control col-md-4" ng-model="placeSearch" placeholder="Place search">
     </div>
+
     <a ng-href="/api/places?query={{ placeSearch }}" class="btn btn-default">Download</a>
 
+    <hr>
+
+    <div class="row">
+
+        <div class="col-xs-6">
+
+            <input type="text" ng-model="_streetSearch">
+
+            <div class="checkbox-list">
+                <div ng-repeat="street in streets | filter:_streetSearch">
+                    <a ng-click="toggleStreet(street)">
+                        <i class="glyphicon" ng-class="isStreetSelected(street) ? 'glyphicon-check' : 'glyphicon-unchecked' "></i> {{street}}
+                    </a>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="col-xs-6">
+
+            <div class="checkbox-list">
+                <div ng-repeat="role in roles">
+                    <a ng-click="toggleRole(role)">
+                        <i class="glyphicon" ng-class="isRoleSelected(role) ? 'glyphicon-check' : 'glyphicon-unchecked' "></i> {{role}}
+                    </a>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="text-center">
+        <button class="btn btn-success" ng-click="download()">Download Excel</button>
+    </div>
+
 </div>
+
 </body>
 </html>

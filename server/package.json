@@ -13,6 +13,8 @@
     "q": "*",
     "body-parser": "*",
     "json2csv": "*",
+    "morgan": "*",
+    "winston": "*",
     "express": "*"
   }
 }
