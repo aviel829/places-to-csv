@@ -29,11 +29,7 @@
 <body ng-controller="PlacesCtrl">
 
 <div class="container">
-    <div class="form-group">
-        <input class="form-control col-md-4" ng-model="placeSearch" placeholder="Place search">
-    </div>
 
-    <a ng-href="/api/places?query={{ placeSearch }}" class="btn btn-default">Download</a>
 
     <hr>
 
@@ -41,9 +37,10 @@
 
         <div class="col-xs-6">
 
-            <input type="text" ng-model="_streetSearch">
+            <input class="" type="text" ng-model="_streetSearch">
 
             <div class="checkbox-list">
+                <button type="button" ng-click="clickAll()" class="btn btn-info" >Select/Remove all</button>
                 <div ng-repeat="street in streets | filter:_streetSearch">
                     <a ng-click="toggleStreet(street)">
                         <i class="glyphicon" ng-class="isStreetSelected(street) ? 'glyphicon-check' : 'glyphicon-unchecked' "></i> {{street}}

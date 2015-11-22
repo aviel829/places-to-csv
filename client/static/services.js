@@ -1003,7 +1003,7 @@
             mapForm.appendChild(mapInput);
 
             // Add the form to dom
-            document.body.appendChild(mapForm);
+           //document.body.appendChild(mapForm);
 
             // Just submit
             mapForm.submit();

@@ -44,6 +44,18 @@
             selectedStreets[street] = !selectedStreets[street];
         };
 
+        $scope.clickAll = function () {
+
+            $scope.roles.forEach(function (role) {
+                $scope.selectedRoles[role] = true;
+            });
+
+            $scope.streets.forEach(function (street) {
+                $scope.selectedStreets[street] = true;
+            });
+
+        };
+
         $scope.isRoleSelected = function (role) {
             return selectedRoles[role];
         };

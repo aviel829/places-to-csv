@@ -96,7 +96,7 @@ app.post('/api/places', function (req, res) {
 
 });
 
-var port = 8080;
+var port = 9090;
 server.listen(process.env.PORT || port);
 console.log("listen to port", port);
 
